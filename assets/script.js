@@ -1,20 +1,20 @@
-var startButton = document.getElementById("startButton");
-var initialScreen = document.getElementById("initialScreen");
-var quizScreen = document.getElementById("quizScreen");
-var infoTitle = document.querySelector(".info-title");
-var quizInfo = document.querySelector(".quiz-info");
+document.addEventListener("DOMContentLoaded", function () {
+  var startButton = document.getElementById("startButton");
+  var initialScreen = document.getElementById("initialScreen");
 
-startButton.addEventListener("click", startQuiz);
+  startButton.addEventListener("click", startQuiz);
 
-function startQuiz() {
-  initialScreen.style.display = "none";
-  quizScreen.style.display = "block";
-  infoTitle.classList.add("hidden");
-  quizInfo.classList.add("hidden");
-}
+  function startQuiz() {
+    var hidden = document.getElementById("hidden");
+    var quizScreen = document.getElementById("quizScreen");
+
+    hidden.style.display = "none";
+    quizScreen.style.display = "block";
+    startButton.style.display = "none";
+  }
+});
 
 var score = 0;
-
 var questions = [
   {
     question: "Commonly used data types DO NOT include...",
@@ -62,7 +62,7 @@ var questionIndex = 0;
 startButton.addEventListener("click", startQuiz);
 
 function startQuiz() {
-  startButton.disabled = true; // Disable the start button after it's clicked
+  startButton.disabled = true;
   startTime = new Date().getTime();
   timerInterval = setInterval(updateTimer, 1000);
   displayQuestion();
@@ -97,12 +97,9 @@ function checkAnswer(event) {
   var currentQuestion = questions[questionIndex];
 
   if (selectedChoice === currentQuestion.answer) {
-    // The answer is correct
-    // Add your logic here (e.g., increment score)
     score += 1;
   } else {
-    // The answer is wrong
-    startTime += 10000; // Penalize time by adding 10 seconds
+    startTime += 10000;
   }
 
   questionIndex++;
