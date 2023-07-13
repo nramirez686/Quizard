@@ -8,19 +8,19 @@
     
   </head>
   <body>
-    <div id="initialScreen"></div>
-    <div class="top-bar">
+    <div id="initialScreen" class="grid-container">
+      <div class="top-bar"></div>
       <div id="Highscores">Highscores</div> 
-      <div id="timer">Timer 00:00</div> 
-      </div>
-
-    <div class="info-title"><span>Coding Quiz Challenge</span></div>
-    <div class="quiz-info"> Try to answer the following code-related questions with the time limit. <br> Keep in mind that incorrect answers will penalize your score time by 10 seconds! </div>
+      <div id="timer" class="timer">Timer 00:00</div> 
+    </div>
+    <div id="hidden">
+      <div class="info-title"><span>Coding Quiz Challenge</span></div>
+      <div class="quiz-info"> Try to answer the following code-related questions with the time limit. <br> Keep in mind that incorrect answers will penalize your score time by 10 seconds! </div>
+    </div>
 
     <div class="d-grid gap-4 col-1 mx-auto">
       <button id="startButton" type="button" class="btn btn-primary btn-lg">Start Quiz</button>
-    </div>
-    <div id="quizScreen" style="display: none;">
+      <div id="quizScreen"></div>
       <div id="question-container"></div>
       </div>
 
